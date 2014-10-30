@@ -97,7 +97,7 @@ class Server
     hot_end = false
     interval = 1
 
-    while (true == cool_end and true == hot_end) do
+    while (false == cool_end and false == hot_end) do
       [@cool, @hot].map{|p|
         next if true == cool_end and p == @cool
         next if true == hot_end and p == @hot
