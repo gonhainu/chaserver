@@ -1,0 +1,26 @@
+{
+  "name": "chaserver",
+  "version": "1.0.0",
+  "description": "chaserver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node manager/manager.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrks/chaserver.git"
+  },
+  "author": "lrks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lrks/chaserver/issues"
+  },
+  "homepage": "https://github.com/lrks/chaserver",
+  "devDependencies": {
+      "socket.io": "1.2.0"
+  },
+  "peerDependencies": {
+      "socket.io": "1.2.0"
+  }
+}
