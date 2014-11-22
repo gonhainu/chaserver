@@ -149,7 +149,8 @@ class Server
     if 'POST' == method
       r = Net::HTTP.post_form(url, query)
     else
-      r = Net::HTTP.get(url, query)
+      url.query = URI.encode_www_form(query)
+      r = Net::HTTP.get_response(url)
     end
     res = JSON.parse(r.body)
     if 'serverHello' == path or 'serverDisconnect' == path 
@@ -157,7 +158,7 @@ class Server
     elsif 'clientHello' == path and query.has_key?(:name)
       puts "#{path}:#{query[:side]}:#{query[:name]}"
     elsif 'clientRequest' == path
-      puts "#{path}:#{query[:side]}:#{query[:cmd]}:#{ret[:result]}"
+      puts "#{path}:#{query[:side]}:#{query[:cmd]}:#{res[:result]}"
     end
     return res
   end
